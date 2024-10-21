@@ -91,6 +91,13 @@ function calculateTip() {
     return; // Exit if either validation fails
   }
 
+  function formatNumber(value) {
+    if (value > 10000) {
+      return value.toExponential(2); // Display two decimal places in exponential form
+    }
+    return value.toFixed(2); // Standard format with two decimal places
+  }
+
   // Handle custom tip or button selection
   if (customTipInput.value) {
     tipPercentage = parseFloat(customTipInput.value) / 100;
@@ -104,8 +111,8 @@ function calculateTip() {
   const totalAmount = (billValue + billValue * tipPercentage) / peopleValue;
 
   // Display the calculated values
-  tipAmountDisplay.textContent = `$${tipAmount.toFixed(2)}`;
-  totalDisplay.textContent = `$${totalAmount.toFixed(2)}`;
+  tipAmountDisplay.textContent = `$${formatNumber(tipAmount)}`;
+  totalDisplay.textContent = `$${formatNumber(totalAmount)}`;
 }
 
 
