@@ -35,7 +35,7 @@ body {
   font-weight: 700;
   font-style: normal;
   background-color: var(--Light-grayish-cyan);
-  color: var(--Stone-600);
+  color: var(--Very-dark-cyan);
   text-align: left;
   flex-direction: column;
   height: 100%;
@@ -135,31 +135,32 @@ button {
   font-size: 1.3rem;
 }
 
-.button.dark {
+.tip-button {
   background-color: var(--Very-dark-cyan);
+  color: var(--Very-light-grayish-cyan);
 }
 
-.button.dark.custom {
-  background-color: var(--Very-light-grayish-cyan);
-  color: var(--Dark-grayish-cyan);
-}
-
-.button.dark.third,
+button.tip-button.active,
 .button.reset {
   background-color: var(--Strong-cyan);
   color: var(--Very-dark-cyan);
 }
 
-.button.dark.third:hover {
-  background-color: var(--Very-dark-cyan);
-  color: var(--Very-light-grayish-cyan);
-}
-
-.button.dark:hover,
-.button.reset:hover {
+.tip-button:hover,
+.button.reset:hover,
+.button.reset:focus  {
   background-color: var(--active-cyan);
   color: var(--Very-dark-cyan);
 }
+
+.custom-input{
+  padding: 0.5rem 0;
+}
+
+.custom-input::placeholder {
+  color: var(--Dark-grayish-cyan);
+}
+
 
 /* INPUT FIELDS  */
 
@@ -171,7 +172,7 @@ button {
 .form-control:focus,
 .form-control:hover {
   border-color: var(--Strong-cyan);
-  box-shadow: 0 0 0 0.25rem rgba(0, 200, 200, 0.25); /* Custom glow */
+  box-shadow: 0 0 0 0.25rem rgba(0, 200, 200, 0.25); 
   transition: 0.3s ease-in-out;
 }
 
@@ -188,9 +189,27 @@ input[type="number"] {
   font-size: 1.3rem;
 }
 
-.custom-input::placeholder {
-  color: var(--Dark-grayish-cyan);
-  /* font-size: 1.3rem; */
+
+/* ERROR MESSAGE  */
+label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.error-message {
+  color: hsl(0, 100%, 50%);
+  font-size: 0.8rem;
+  font-weight: 100;
+}
+
+.error-border {
+  border: 1px solid hsl(0, 100%, 40%); 
+}
+
+.error-border:focus {
+  border: 1px solid hsl(0, 100%, 40%);
+  box-shadow:  0 0 0 0.2rem rgba(255, 0, 0, 0.3); 
+  transition: 0.3s ease-in-out;
 }
 
 /* INNER CONTAINER  */
@@ -205,8 +224,7 @@ input[type="number"] {
   display: flex;
 }
 
-.inner-container p,
-.button.dark {
+.inner-container p {
   color: var(--Very-light-grayish-cyan);
 }
 
