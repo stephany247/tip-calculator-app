@@ -140,8 +140,7 @@ button {
   color: var(--Very-light-grayish-cyan);
 }
 
-button.tip-button.active,
-.button.reset {
+button.tip-button.active {
   background-color: var(--Strong-cyan);
   color: var(--Very-dark-cyan);
 }
@@ -150,6 +149,18 @@ button.tip-button.active,
 .button.reset:hover,
 .button.reset:focus  {
   background-color: var(--active-cyan);
+  color: var(--Very-dark-cyan);
+}
+
+button:disabled {
+  background-color: var(--Strong-cyan);
+  color: var(--Very-dark-cyan);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.button.reset {
+  background-color: var(--Strong-cyan);
   color: var(--Very-dark-cyan);
 }
 

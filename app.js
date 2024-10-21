@@ -23,6 +23,13 @@ tipButtons.forEach((button) => {
 });
 billInput.addEventListener('input', validateBill);
 peopleInput.addEventListener('input', validatePeople);
+billInput.addEventListener('input', () => {
+  resetButton.disabled = billInput.value.trim() === ''; // Toggle button state
+});
+resetButton.addEventListener('click', () => {
+  billInput.value = ''; // Reset input field
+  resetButton.disabled = true; // Disable reset button
+});
 
 
 
@@ -110,5 +117,9 @@ function resetValues() {
   tipAmountDisplay.textContent = "$0.00";
   totalDisplay.textContent = "$0.00";
   selectedTipPercentage = 0;
+  billErrorMessageDisplay.textContent ='';
+  billInput.classList.remove("error-border");
+  peopleErrorMessageDisplay.textContent = '';
+  peopleInput.classList.remove("error-border");
   tipButtons.forEach((button) => button.classList.remove("active"));
 }
